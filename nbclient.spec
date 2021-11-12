@@ -4,7 +4,7 @@
 #
 Name     : nbclient
 Version  : 0.5.8
-Release  : 7
+Release  : 8
 URL      : https://files.pythonhosted.org/packages/28/ac/4ff630060fbed186f5dc4ddd1baf7cb40b888d04ba8b97108f405842bb98/nbclient-0.5.8.tar.gz
 Source0  : https://files.pythonhosted.org/packages/28/ac/4ff630060fbed186f5dc4ddd1baf7cb40b888d04ba8b97108f405842bb98/nbclient-0.5.8.tar.gz
 Summary  : A client library for executing notebooks. Formerly nbconvert's ExecutePreprocessor.
@@ -88,7 +88,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1636731643
+export SOURCE_DATE_EPOCH=1636732460
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -109,6 +109,8 @@ python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
+## Remove excluded files
+rm -f %{buildroot}*/usr/bin/jupyter-run
 
 %files
 %defattr(-,root,root,-)
@@ -116,7 +118,6 @@ echo ----[ mark ]----
 %files bin
 %defattr(-,root,root,-)
 /usr/bin/jupyter-execute
-/usr/bin/jupyter-run
 
 %files license
 %defattr(0644,root,root,0755)
