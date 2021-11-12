@@ -1,5 +1,5 @@
 PKG_NAME := nbclient
-URL = https://files.pythonhosted.org/packages/ef/17/e76d5ebca945baa13bb4824b16cef7eed10e32fe528798c1478be059ce24/nbclient-0.5.5.tar.gz
+URL = https://files.pythonhosted.org/packages/28/ac/4ff630060fbed186f5dc4ddd1baf7cb40b888d04ba8b97108f405842bb98/nbclient-0.5.8.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
